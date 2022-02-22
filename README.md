@@ -1,7 +1,7 @@
 # RegexForHEX
 
 ## Summary
-This tutorial explains how the regular expression for matching HEX values operates. Within the description below, each component of the expression will be broken down to define what each character's function is and how this expression matches HEX values step by step with its anchors, quantifiers, OR Operator, grouping and capturing, and bracket expressions.
+This tutorial explains how the regular expression for matching HEX values operates. Within the description below, each component of the expression will be broken down to define what each character's function is and how this expression matches HEX values step by step with its anchors, quantifiers, character classes, grouping constructs, bracket expressions, and the OR operator.
 
 Regex for matching HEX values:
 `/^#?([a-f0-9]{6}|[a-f0-9]{3})$/`
@@ -10,9 +10,9 @@ Regex for matching HEX values:
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
+- [Character Classes](#character-classes)
 - [Grouping Constructs](#grouping-constructs)
 - [Bracket Expressions](#bracket-expressions)
-- [Character Classes](#character-classes)
 - [The OR Operator](#the-or-operator)
 
 ## Regex Components
@@ -65,6 +65,17 @@ Example: `7{3}` indicates that 7 must be repeated 3 times. The matching string m
 In this regex, {6} requires that there be 6 instances of the string in the bracket expression before it, meaning that this quantifier allows exactly 6 characters in a string composed of any characters a-f and/or integers between 0-9. The {3} indicates that there are 3 instances of the string in that preceding bracket expression, implying that this quantifier will allow exactly 3 characters in the string that contain characters between a-f and/or integers between 0-9.
 
 
+### Character Classes
+
+Code Snippet: `a-f0-9`
+
+Description: Character classes look to match only the defined character set. Hyphens may be used to define a range of characters so that many characters may be searched for. More than one range may be used as well, as seen within this snippet. 
+
+Example: The character class `0-9` matches a single digit between 0 and 9. The digit could be 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.
+
+In this regex, the character class consists of lower case alphabetic characters a-f (abcdef) and integers between 0-9 (0123456789).
+
+
 ### Grouping Constructs
 
 Grouping and Capturing: ()
@@ -90,16 +101,6 @@ Example: [a-c 1-3] indicates that the string must include at least 1 character t
 
 Within this regex, the bracket expression [] requires the matching string to have any lowercase character between a-f or any integer between 0-9.
 
-
-### Character Classes
-
-Code Snippet: `a-f0-9`
-
-Description: Character classes look to match only the defined character set. Hyphens may be used to define a range of characters so that many characters may be searched for. More than one range may be used as well, as seen within this snippet. 
-
-Example: The character class `0-9` matches a single digit between 0 and 9. The digit could be 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.
-
-In this regex, the character class consists of lower case alphabetic characters a-f (abcdef) and integers between 0-9 (0123456789).
 
 ### The OR Operator
 
