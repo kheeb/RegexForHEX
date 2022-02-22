@@ -14,8 +14,6 @@ Regex for matching HEX values:
 - [Bracket Expressions](#bracket-expressions)
 - [Character Classes](#character-classes)
 - [The OR Operator](#the-or-operator)
-- [Flags](#flags)
-- [Character Escapes](#character-escapes)
 
 ## Regex Components
 
@@ -24,9 +22,7 @@ Regex for matching HEX values:
 Anchor: ^
 Code Snippet: `/^#`
 
-Description:
-
-Anchors themselves do not match a regular expression; anchors assert a rule of the string based on the following characters or matching pattern next to the anchor itself. 
+Description: Anchors themselves do not match a regular expression; anchors assert a rule of the string based on the following characters or matching pattern next to the anchor itself. 
 
 Example: `^Test` indicates that the string must start with `Test`
 
@@ -94,13 +90,29 @@ Example: [a-c 1-3] indicates that the string must include at least 1 character t
 
 Within this regex, the bracket expression [] requires the matching string to have any lowercase character between a-f or any integer between 0-9.
 
+
 ### Character Classes
+
+Code Snippet: `a-f0-9`
+
+Description: Character classes look to match only the defined character set. Hyphens may be used to define a range of characters so that many characters may be searched for. More than one range may be used as well, as seen within this snippet. 
+
+Example: The character class `0-9` matches a single digit between 0 and 9. The digit could be 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.
+
+In this regex, the character class consists of lower case alphabetic characters a-f (abcdef) and integers between 0-9 (0123456789).
 
 ### The OR Operator
 
-### Flags
+OR Operator: |
 
-### Character Escapes
+Code Snippet: `[a-f0-9]{6}|[a-f0-9]{3}`
+
+Description: The | indicator is a boolean that matches the expression either before or after it.
+
+Example: 2|4 indicates that either 2 or 4 or both integers are allowed within the string, therefore 222, 444, 242, 424, 224, 442, 422, or 244 are accepted as matching patterns.
+
+In this regex, a matching pattern may contain a string of 6 characters that are lowercase a-f and/or integers 0-9 OR a string of 3 characters that are lowercase a-f and/or integers 0-9. For a string to match, it must have either 6 or 3 characters with the specific parameters set within the bracket expressions. Anything that does not have 6 or 3 characters following these parameters will not match.
+
 
 ## Author
 
